@@ -1,6 +1,6 @@
 # Akka Blockchain
 
-This is an Actor-based Scala application that runs on an Akka cluster to simulate cryptocurrency mining activities on a decentralized blockchain network.  It involves using of hash functions, Merkle trees and some basic PKCS cryptographic functions.  Proof of Work is adopted as the concensus algorithm.  For an overview of the application, please visit [Genuine Blog](https://blog.genuine.com/.../).
+This is an Actor-based Scala application that runs on an Akka cluster to simulate cryptocurrency mining activities on a decentralized blockchain network.  It involves using of hash functions, Merkle trees and some basic PKCS cryptographic functions.  Proof of Work is adopted as the concensus algorithm.  For an overview of the application, please visit [Genuine Blog](https://blog.genuine.com/an-akka-actor-based-blockchain/).
 
 I'm using Akka classic actors in the blockchain application, partly because message loop hotswapping is being utilized in a few actors and Akka Typed doesn't seem to provide equivalent functionality.  Nonetheless, the code should run fine on both Akka 2.5 and 2.6.
 
