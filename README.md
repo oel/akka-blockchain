@@ -1,23 +1,20 @@
 # Akka Blockchain
 
-This is an Actor-based Scala application that runs on an Akka cluster to simulate cryptocurrency mining activities on a decentralized blockchain network.  It involves using of hash functions, Merkle trees and some basic PKCS cryptographic functions.  Proof of Work is adopted as the concensus algorithm.  For an overview of the application, please visit [Genuine Blog](https://blog.genuine.com/an-akka-actor-based-blockchain/).
+This is an Actor-based Scala application that runs on an Akka cluster to simulate cryptocurrency mining activities on a decentralized blockchain network.  It involves using of hash functions, Merkle trees and some basic PKCS cryptographic functions.  Proof-of-Work is adopted as the concensus algorithm.  For an overview of the application, please visit [Genuine Blog](https://blog.genuine.com/an-akka-actor-based-blockchain/).
 
-The application uses Akka classic actors and has been tested fully functional on Akka 2.5 and 2.6 on an expandable cluster, with each node simulating an independent miner.
+The application uses Akka classic actors and has been tested fully functional on Akka *2.5* and *2.6* on an expandable cluster, with each node simulating an independent miner.  With the default configuration, the application will launch an Akka cluster on a single host with two seed nodes at port# *2551* and *2552* for additional nodes to join.
 
-With the default configuration, the application will launch an Akka cluster on a single host with two seed nodes at port# 2551 and 2552, with additional nodes bound to additional port#s (e.g. 2553, 2554, ...) as needs arise.  It can be easily configured to run on separate hosts that form a scalable cluster.
-
-The main program takes a port#, path to the miner's public-key ([PKCS#8](https://en.wikipedia.org/wiki/PKCS_8) PEM) for collecting mining reward, and an optional flag "test" for a quick test (as opposed to entering a mining loop).
+The main program takes as arguments a port#, path to the miner's public-key for collecting mining reward, and an optional flag "test" for a quick test (as opposed to entering a mining loop):
 
 ```bash
 $ sbt "runMain akkablockchain.Main port# /path/to/minerPublicKey [test]"
 ```
 
-To save time for crypto key generation (required for user accounts) in application startup, a few public-keys (account?_public.pem; ?=0,..,9) have been pre-generated and saved under "{project-root}/src/main/resources/key/".  Method generateKeyPairPemFiles() within the included Crypto class can be used to generate additional keypairs.
+To save time for cryptographic key generation (required for user accounts) in application startup, a few public-keys (*accountX_public.pem*; *X=0,..,9*) have been created and saved under "*{project-root}/src/main/resources/key/*".  To generate additional keys, method *generateKeyPairPemFiles()* within the included *Crypto* class can be used.
 
 ## Running akka-blockchain on separate JVMs
-To run the application on separate JVMs, please proceed as follows:
 
-git-clone the repo to a local disk, open up separate shell command line terminals and launch the application from the project-root on separate terminals by binding them to different port#.
+Git-clone the repo to a local disk, open up separate shell command line terminals and launch the application from the *project-root* on separate terminals by binding them to different port#.
 
 1. Start the cluster seed node #1 at port# 2551 using account0 as miner's account
 ```bash
