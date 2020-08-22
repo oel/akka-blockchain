@@ -19,11 +19,11 @@ object MerkleTree {
       case ns if ns.size <= 1 =>
         ns
       case ns =>
-        val treePair = ns.grouped(2).map{
+        val pairedNodes = ns.grouped(2).map{
           case Array(a, b) => new MerkleTree(hashFcn(a.hash ++ b.hash), Some(a), Some(b))
           case Array(a)    => new MerkleTree(hashFcn(a.hash), Some(a), None)
         }.toArray
-        buildTree(treePair)
+        buildTree(pairedNodes)
     }
 
     if (data.isEmpty)
