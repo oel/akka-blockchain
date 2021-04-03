@@ -31,8 +31,6 @@ object Main {
         }
       }
 
-    val key = publicKeyFromPemFile(minerKeyFile)
-
     val minerAccountKey = publicKeyFromPemFile(minerKeyFile) match {
       case Some(key) =>
         publicKeyToBase64(key)

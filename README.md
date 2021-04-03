@@ -10,7 +10,7 @@ The main program takes 2 arguments: a port# and a path to the miner's public-key
 $ sbt "runMain akkablockchain.Main port# /path/to/minerPublicKey [test]"
 ```
 
-To save time for cryptographic key generation (required for user accounts) in application startup, a few public-keys (*accountX_public.pem*; *X=0,..,9*) have been created and saved under "*{project-root}/src/main/resources/key/*".  To generate additional keys, method *generateKeyPairPemFiles()* within the included *Crypto* class can be used.
+To save time for cryptographic key generation (required for user accounts) in application startup, a few public-keys (*accountX_public.pem*; *X=0,..,9*) have been created and saved under "*{project-root}/src/main/resources/keys/*".  To generate additional keys, method *generateKeyPairPemFiles()* within the included *Crypto* class can be used.
 
 ## Running akka-blockchain on separate JVMs
 
