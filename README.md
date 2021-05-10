@@ -2,6 +2,8 @@
 
 This is an Actor-based Scala application that runs on an Akka cluster to simulate cryptocurrency mining activities on a decentralized blockchain network.  It involves using of hash functions, Merkle trees and some basic PKCS cryptographic functions.  Proof-of-Work is adopted as the concensus algorithm.  For an overview of the application, please visit [Genuine Blog](https://blog.genuine.com/2020/04/an-akka-actor-based-blockchain/).
 
+UPDATE: A new version of this application using Akka Typed actors is available in a separate [GitHub repo](https://github.com/oel/akka-typed-blockchain).
+
 The application uses Akka classic actors and has been tested fully functional on Akka *2.5* and *2.6* on an expandable cluster, with each node simulating an independent miner.  With the default configuration, it will launch an Akka cluster on a single host with two seed nodes at port *2551* and *2552* for additional nodes to join the cluster.
 
 The main program takes 2 arguments: a port# and a path to the miner's public-key file; and an optional 3rd argument: "test" for a quick test (as opposed to entering a mining loop):
